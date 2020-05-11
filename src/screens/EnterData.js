@@ -1,13 +1,11 @@
 import 'react-native-gesture-handler';
-import PassportReader from 'react-native-passport-reader'
 import { StyleSheet, View, Text, TextInput, Image, Button } from "react-native";
 import React, { Component, useState } from "react";
-// { scan, cancel, isSuppo }
 
-function EnterData() {
-  const [dateOfBirth, setDateOfBirth] = useState('0');
-  const [dateOfExpiry, setDateOfExpiry] = useState('0');
-  const [documentNumber, setDocumentNumber] = useState('0');
+function EnterData({navigation}) {
+  const [dateOfBirthInput, setDateOfBirth] = useState('0');
+  const [dateOfExpiryInput, setDateOfExpiry] = useState('0');
+  const [documentNumberInput, setDocumentNumber] = useState('0');
 
   return (
     <View style={styles.container}>
@@ -16,7 +14,7 @@ function EnterData() {
       </View>
       <View style={styles.body}>
         <Text>Fecha de nacimiento 'AAmmdd'</Text>
-        <TextInput styles={styles.inputs}
+        <TextInput style={styles.inputs}
           onChangeText={value => setDateOfBirth(value)}>
         </TextInput>
         <Text>Fecha de vencimiento 'AAmmdd'</Text>
@@ -34,9 +32,9 @@ function EnterData() {
         color="rgba(7,201,219,1)"
         onPress={() =>
           navigation.navigate('Processing', {
-            dateOfBirth: this.dateOfBirth,
-            dateOfExpiry: this.dateOfExpiry,
-            documentNumber: this.documentNumber
+            dateOfBirth: dateOfBirthInput,
+            dateOfExpiry: dateOfExpiryInput,
+            documentNumber: documentNumberInput
           })
         }
       />

@@ -14,6 +14,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="EnterData">
         <Stack.Screen name="EnterData" component={EnterData} />
+        <Stack.Screen name="Processing" component={Processing} />
+        <Stack.Screen name="NfcResults" component={NfcResults} />
       </Stack.Navigator>
     </NavigationContainer>
   );
