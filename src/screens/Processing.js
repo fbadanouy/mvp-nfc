@@ -64,12 +64,24 @@ async function cancel(navigation) {
 async function scan(docNum, dateBirth, dateExp, navigation) {
 
     const {
-        firstName,
-        lastName,
-        gender,
-        issuer,
-        nationality,
-        photo
+        mrz,
+        nombre,
+        apellido,
+        fechaNacimiento,
+        fechaVencimiento,
+        numeroDocumento,
+        tipoDocumento,
+        codigoDocumento,
+        estado,
+        nacionalidad,
+        genero,
+        numeroPersonal,
+        dataOpcional1,
+        dataOpcional2,
+        photo,
+        // base64,
+        // width,
+        // height
     } = await PassportReader.scan({
         documentNumber: docNum,
         dateOfBirth: dateBirth,
@@ -79,15 +91,21 @@ async function scan(docNum, dateBirth, dateExp, navigation) {
     const { base64, width, height } = photo;
 
     navigation.navigate("NfcResults", {
-        firstName:firstName,
-        lastName:lastName,
-        gender:gender, 
-        issuer:issuer, 
-        nationality:nationality,
-        photo:photo, 
-        base64:base64, 
-        width:width, 
-        height:height
+        mrz:mrz,
+        nombre:nombre,
+        apellido:apellido,
+        fechaNacimiento:fechaNacimiento,
+        fechaVencimiento:fechaVencimiento,
+        numeroDocumento:numeroDocumento,
+        tipoDocumento:tipoDocumento,
+        codigoDocumento:codigoDocumento,
+        estado:estado,
+        nacionalidad:nacionalidad,
+        genero:genero,
+        numeroPersonal:numeroPersonal,
+        dataOpcional1:dataOpcional1,
+        dataOpcional2:dataOpcional2,
+        photo:photo
     });
 }
 

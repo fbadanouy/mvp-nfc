@@ -15,14 +15,18 @@ function EnterData({navigation}) {
       <View style={styles.body}>
         <Text>Fecha de nacimiento 'AAmmdd'</Text>
         <TextInput style={styles.inputs}
+        //   defaultValue="961220" FER
           onChangeText={value => setDateOfBirth(value)}>
+              
         </TextInput>
         <Text>Fecha de vencimiento 'AAmmdd'</Text>
         <TextInput style={styles.inputs}
+        //   defaultValue="280315" FER
           onChangeText={value => setDateOfExpiry(value)}>
         </TextInput>
         <Text>Codigo de documento</Text>
         <TextInput style={styles.inputs}
+        //   defaultValue="00000X64A" FER
           onChangeText={value => setDocumentNumber(value)}>
         </TextInput>
       </View>
