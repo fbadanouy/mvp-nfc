@@ -1,5 +1,5 @@
 # MVP NFC
-> App de react-native que extrae datos de una cédula uruguaya através de NFC
+> App de react-native que extrae datos de una cédula uruguaya através de NFC en Android
 
 ### Installing
 
@@ -13,6 +13,11 @@ Ejecutar npm install en directorio /mvp-nfc
 
 ```
 npm install
+```
+
+Ejecutar app react-native en Android
+```
+react-native run-android
 ```
 
 ## Built With
