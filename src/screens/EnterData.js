@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import {StyleSheet, View, Text, TextInput, Button} from 'react-native';
 import React, {useState} from 'react';
+import {commonStyles} from '../styles/commonStyles';
 
 function EnterData({navigation}) {
   const [dateOfBirthInput, setDateOfBirth] = useState('0');
@@ -8,31 +9,30 @@ function EnterData({navigation}) {
   const [documentNumberInput, setDocumentNumber] = useState('0');
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>NFC Reader</Text>
+    <View style={commonStyles.container}>
+      <View style={commonStyles.header}>
+        <Text style={commonStyles.title}>NFC Reader</Text>
       </View>
-      <View style={styles.body}>
-        <Text>Fecha de nacimiento 'AAmmdd'</Text>
+      <View style={commonStyles.body}>
+        <Text style={commonStyles.content}>Fecha de nacimiento 'AAmmdd'</Text>
         <TextInput
-          style={styles.inputs}
-          //   defaultValue="961220" FER
+          style={commonStyles.inputs}
+          keyboardType="number-pad"
           onChangeText={value => setDateOfBirth(value)}
         />
-        <Text>Fecha de vencimiento 'AAmmdd'</Text>
+        <Text style={commonStyles.content}>Fecha de vencimiento 'AAmmdd'</Text>
         <TextInput
-          style={styles.inputs}
-          //   defaultValue="280315" FER
+          style={commonStyles.inputs}
+          keyboardType="number-pad"
           onChangeText={value => setDateOfExpiry(value)}
         />
-        <Text>Codigo de documento</Text>
+        <Text style={commonStyles.content}>Codigo de documento</Text>
         <TextInput
-          style={styles.inputs}
-          //   defaultValue="00000X64A" FER
+          style={commonStyles.inputs}
           onChangeText={value => setDocumentNumber(value)}
         />
       </View>
-      <View style={styles.buttons}>
+      <View style={commonStyles.buttons}>
         <Button
           title="Leer Cedula"
           color="rgba(7,201,219,1)"
@@ -48,25 +48,5 @@ function EnterData({navigation}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flex: 1,
-    backgroundColor: 'green',
-    alignItems: 'flex-start',
-  },
-  body: {
-    flex: 5,
-  },
-  inputs: {
-    backgroundColor: 'gray',
-  },
-  buttons: {
-    flex: 1,
-  },
-});
 
 export default EnterData;

@@ -2,18 +2,21 @@ import 'react-native-gesture-handler';
 import {StyleSheet, View, Text, ActivityIndicator, Alert} from 'react-native';
 import React from 'react';
 import {compareFaces} from '../functions/conectionApi';
+import {commonStyles} from '../styles/commonStyles';
 
 function FacialRecProcessing({navigation, route}) {
   const {ciPhoto} = route.params;
   const {facePhoto} = route.params;
   compareFacesCaller(ciPhoto, facePhoto, navigation);
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Processing</Text>
+    <View style={commonStyles.container}>
+      <View style={commonStyles.header}>
+        <Text style={commonStyles.title}>Processing</Text>
       </View>
-      <View style={styles.body}>
-        <Text>Estamos verificando su identidad</Text>
+      <View style={commonStyles.body}>
+        <Text style={commonStyles.content}>
+          Estamos verificando su identidad
+        </Text>
         <ActivityIndicator size="large" color="#0000ff" />
       </View>
     </View>
@@ -30,25 +33,5 @@ function compareFacesCaller(ciPhoto, facePhoto, navigation) {
     }
   });
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flex: 1,
-    backgroundColor: 'green',
-    alignItems: 'flex-start',
-  },
-  body: {
-    flex: 5,
-  },
-  inputs: {
-    backgroundColor: 'gray',
-  },
-  buttons: {
-    flex: 1,
-  },
-});
 
 export default FacialRecProcessing;

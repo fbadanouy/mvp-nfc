@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
-import EnterData from './src/screens/EnterData'
-import Processing from './src/screens/Processing'
-import NfcResults from './src/screens/NfcResults'
+import EnterData from './src/screens/EnterData';
+import Processing from './src/screens/Processing';
+import NfcResults from './src/screens/NfcResults';
 
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
