@@ -6,6 +6,8 @@ import NfcResults from './src/screens/NfcResults'
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import FacialRecProcessing from './src/screens/FacialRecProcessing';
+import FacialRecAccepted from './src/screens/FacialRecAccepted';
 
 export const Stack = createStackNavigator();
 
@@ -16,6 +18,11 @@ function App() {
         <Stack.Screen name="EnterData" component={EnterData} />
         <Stack.Screen name="Processing" component={Processing} />
         <Stack.Screen name="NfcResults" component={NfcResults} />
+        <Stack.Screen
+          name="FacialRecProcessing"
+          component={FacialRecProcessing}
+        />
+        <Stack.Screen name="FacialRecAccepted" component={FacialRecAccepted} />
       </Stack.Navigator>
     </NavigationContainer>
   );

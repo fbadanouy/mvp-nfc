@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
-import { StyleSheet, View, Text, TextInput, Image, Button } from "react-native";
-import React, { Component, useState } from "react";
+import {StyleSheet, View, Text, TextInput, Button} from 'react-native';
+import React, {useState} from 'react';
 
 function EnterData({navigation}) {
   const [dateOfBirthInput, setDateOfBirth] = useState('0');
@@ -14,60 +14,59 @@ function EnterData({navigation}) {
       </View>
       <View style={styles.body}>
         <Text>Fecha de nacimiento 'AAmmdd'</Text>
-        <TextInput style={styles.inputs}
-        //   defaultValue="961220" FER
-          onChangeText={value => setDateOfBirth(value)}>
-              
-        </TextInput>
+        <TextInput
+          style={styles.inputs}
+          //   defaultValue="961220" FER
+          onChangeText={value => setDateOfBirth(value)}
+        />
         <Text>Fecha de vencimiento 'AAmmdd'</Text>
-        <TextInput style={styles.inputs}
-        //   defaultValue="280315" FER
-          onChangeText={value => setDateOfExpiry(value)}>
-        </TextInput>
+        <TextInput
+          style={styles.inputs}
+          //   defaultValue="280315" FER
+          onChangeText={value => setDateOfExpiry(value)}
+        />
         <Text>Codigo de documento</Text>
-        <TextInput style={styles.inputs}
-        //   defaultValue="00000X64A" FER
-          onChangeText={value => setDocumentNumber(value)}>
-        </TextInput>
+        <TextInput
+          style={styles.inputs}
+          //   defaultValue="00000X64A" FER
+          onChangeText={value => setDocumentNumber(value)}
+        />
       </View>
       <View style={styles.buttons}>
-      <Button
-        title="Leer Cedula"
-        color="rgba(7,201,219,1)"
-        onPress={() =>
-          navigation.navigate('Processing', {
-            dateOfBirth: dateOfBirthInput,
-            dateOfExpiry: dateOfExpiryInput,
-            documentNumber: documentNumberInput
-          })
-        }
-      />
+        <Button
+          title="Leer Cedula"
+          color="rgba(7,201,219,1)"
+          onPress={() =>
+            navigation.navigate('Processing', {
+              dateOfBirth: dateOfBirthInput,
+              dateOfExpiry: dateOfExpiryInput,
+              documentNumber: documentNumberInput,
+            })
+          }
+        />
       </View>
-      
     </View>
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
-  header:{
-    flex:1,
+  header: {
+    flex: 1,
     backgroundColor: 'green',
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
-  body:{
-    flex: 5
+  body: {
+    flex: 5,
   },
-  inputs:{
-    backgroundColor: 'gray'
+  inputs: {
+    backgroundColor: 'gray',
   },
-  buttons:{
-    flex: 1
-  }
-  
+  buttons: {
+    flex: 1,
+  },
 });
 
 export default EnterData;
