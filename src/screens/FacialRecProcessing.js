@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import {StyleSheet, View, Text, ActivityIndicator, Alert} from 'react-native';
+import {View, Text, ActivityIndicator, Alert} from 'react-native';
 import React from 'react';
 import {compareFaces} from '../functions/conectionApi';
 import {commonStyles} from '../styles/commonStyles';
@@ -24,14 +24,18 @@ function FacialRecProcessing({navigation, route}) {
 }
 
 function compareFacesCaller(ciPhoto, facePhoto, navigation) {
-  compareFaces(ciPhoto.base64.split(',')[1], facePhoto, result => {
-    if (result.comparacion) {
-      navigation.navigate('FacialRecAccepted');
-    } else {
-      Alert.alert('Error', 'Usted no es el propietario de la cedula');
-      navigation.navigate('EnterData');
-    }
-  });
+  compareFaces(
+    ciPhoto.base64.replace('data:image/jpeg;base64,', ''),
+    facePhoto,
+    result => {
+      if (result.comparacion) {
+        navigation.navigate('FacialRecAccepted');
+      } else {
+        Alert.alert('Error', 'Usted no es el propietario de la cedula');
+        navigation.navigate('EnterData');
+      }
+    },
+  );
 }
 
 export default FacialRecProcessing;
