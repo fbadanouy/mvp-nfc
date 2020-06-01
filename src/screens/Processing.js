@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import PassportReader from 'react-native-passport-reader';
-import {View, Text, Button, ActivityIndicator} from 'react-native';
+import {View, Text, Button, ActivityIndicator, Alert} from 'react-native';
 import React from 'react';
 import {commonStyles} from '../styles/commonStyles';
 
@@ -59,6 +59,10 @@ async function scan(docNum, dateBirth, dateExp, navigation) {
     documentNumber: docNum,
     dateOfBirth: dateBirth,
     dateOfExpiry: dateExp,
+  }).catch(function(err) {
+    Alert.alert('Error', 'Error leyendo la cedula');
+    console.log(err);
+    navigation.navigate('EnterData');
   });
 
   const {base64, width, height} = photo;
